@@ -1,0 +1,20 @@
+/* CYBERPUNK RGB THEME */
+body { background: #050505; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; display: flex; margin: 0; height: 100vh; overflow: hidden; }
+
+.sidebar { width: 260px; background: #0d0d0d; border-right: 2px solid #00ffff; box-shadow: 5px 0 15px rgba(0, 255, 255, 0.2); padding: 30px; }
+.brand-name { display: block; font-weight: bold; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-top: 10px; font-size: 20px; }
+
+.main-panel { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; }
+.hero { text-align: center; background: rgba(20, 20, 20, 0.9); padding: 60px; border: 1px solid #ff00ff; border-radius: 5px; box-shadow: 0 0 30px rgba(255, 0, 255, 0.3); }
+
+.rgb-text { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 2px; color: #00ffff; text-shadow: 3px 3px #ff00ff; margin-bottom: 5px; }
+.subtitle { font-size: 1.2rem; color: #fff; text-shadow: 0 0 10px #00ffff; animation: glow 3s infinite alternate; }
+
+.btn { padding: 15px 35px; border-radius: 0; text-decoration: none; font-weight: bold; margin: 15px; display: inline-block; transition: 0.3s; border: 2px solid; }
+.neon-btn-blue { color: #00ffff; border-color: #00ffff; box-shadow: inset 0 0 10px #00ffff, 0 0 10px #00ffff; }
+.neon-btn-blue:hover { transform: scale(1.1); background: #00ffff; color: #000; box-shadow: 0 0 30px #00ffff; }
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #00ffff; }
+    100% { text-shadow: 0 0 20px #ff00ff; }
+}
