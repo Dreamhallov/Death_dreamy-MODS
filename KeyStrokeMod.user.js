@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Minefun.io Custom Keystrokes & CPS Tracker 
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      1.0
 // @description Advance Level Keystrokes and Cps With more Improve settings And You have facility to change key blinds too.. Best Keystroke Type '\' To open menu.
 // @author       Death_dreamy
 // @license      SL
@@ -223,7 +223,7 @@
         <div class="ks-menu-rgb-wrap">
             <div class="ks-menu">
                 <div class="ks-header">
-                    <div>Chroma Dashboard (V8)</div>
+                    <div>KeyStroke Menu</div>
                     <div class="ks-close-icon" id="ks-xBtn">&times;</div>
                 </div>
                 <div class="ks-body">
