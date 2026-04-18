@@ -7,38 +7,166 @@
     <title>Death_dreamy Mods</title>
 </head>
 <body>
+    <div class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">⚡</span>
+            <span class="brand-name">DEATH_DREAMY</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">🎮 Mods</a>
+            <a href="#" class="nav-item">📦 Downloads</a>
+            <a href="#" class="nav-item">🐛 Bug Reports</a>
+            <a href="#" class="nav-item">ℹ️ About</a>
+        </nav>
+        <div class="social-links">
+            <span class="social-icon">🔗</span>
+            <span class="social-icon">💬</span>
+            <span class="social-icon">📧</span>
+        </div>
+    </div>
+
     <div class="main-panel">
         <div class="hero">
-            <h1 class="rgb-text">Death_dreamy Mods</h1>
-            <p class="subtitle">Make your game better</p>
+            <h1 class="rgb-text glitch-effect" data-text="Death_dreamy Mods">Death_dreamy Mods</h1>
+            <p class="subtitle">Make your game better ✨</p>
             
             <div class="mod-grid">
                 <!-- Button 1: Particles -->
                 <div class="mod-card">
+                    <div class="mod-icon">🌟</div>
                     <h3>PARTICLES MOD</h3>
+                    <p class="mod-desc">Enhanced particle effects for stunning visuals</p>
+                    <div class="mod-stats">
+                        <span class="stat">⭐ 4.8</span>
+                        <span class="stat">⬇️ 1.2k</span>
+                    </div>
                     <a href="Particles_Mod.user.js" class="btn neon-pink">INSTALL</a>
+                    <button class="bug-report-btn" onclick="reportBug('Particles Mod')">🐛 Report Bug</button>
                 </div>
 
                 <!-- Button 2: Shaders -->
                 <div class="mod-card">
+                    <div class="mod-icon">🎨</div>
                     <h3>SHADERS & VISUALS</h3>
+                    <p class="mod-desc">Advanced shaders and visual enhancements</p>
+                    <div class="mod-stats">
+                        <span class="stat">⭐ 4.9</span>
+                        <span class="stat">⬇️ 2.5k</span>
+                    </div>
                     <a href="Shaders+Visuals_MOD.user.js" class="btn neon-blue">INSTALL</a>
+                    <button class="bug-report-btn" onclick="reportBug('Shaders & Visuals Mod')">🐛 Report Bug</button>
                 </div>
 
                 <!-- Button 3: KeyStroke -->
                 <div class="mod-card">
+                    <div class="mod-icon">⌨️</div>
                     <h3>KEYSTROKE MOD</h3>
+                    <p class="mod-desc">Display your keystrokes in real-time</p>
+                    <div class="mod-stats">
+                        <span class="stat">⭐ 4.7</span>
+                        <span class="stat">⬇️ 980</span>
+                    </div>
                     <a href="KeyStrokeMod.user.js" class="btn neon-blue">INSTALL</a>
+                    <button class="bug-report-btn" onclick="reportBug('KeyStroke Mod')">🐛 Report Bug</button>
                 </div>
 
                 <!-- Button 4: HUD -->
                 <div class="mod-card">
+                    <div class="mod-icon">📊</div>
                     <h3>HUD MOD</h3>
+                    <p class="mod-desc">Customizable heads-up display with stats</p>
+                    <div class="mod-stats">
+                        <span class="stat">⭐ 4.6</span>
+                        <span class="stat">⬇️ 750</span>
+                    </div>
                     <a href="HUD_Mod.user.js" class="btn neon-pink">INSTALL</a>
+                    <button class="bug-report-btn" onclick="reportBug('HUD Mod')">🐛 Report Bug</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Bug Report Modal -->
+    <div id="bugModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">🐛 Report a Bug</h2>
+            <p id="modalModName" class="modal-subtitle"></p>
+            <form id="bugForm" onsubmit="submitBug(event)">
+                <div class="form-group">
+                    <label for="bugTitle">Bug Title</label>
+                    <input type="text" id="bugTitle" required placeholder="Brief description of the issue">
+                </div>
+                <div class="form-group">
+                    <label for="bugDescription">Description</label>
+                    <textarea id="bugDescription" rows="5" required placeholder="Describe what happened..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="bugSteps">Steps to Reproduce</label>
+                    <textarea id="bugSteps" rows="3" placeholder="How can we reproduce this?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="bugSeverity">Severity</label>
+                    <select id="bugSeverity">
+                        <option value="low">Low - Minor issue</option>
+                        <option value="medium" selected>Medium - Affects functionality</option>
+                        <option value="high">High - Critical bug</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn neon-pink submit-btn">Submit Report</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentMod = '';
+
+        function reportBug(modName) {
+            currentMod = modName;
+            document.getElementById('modalModName').textContent = `Reporting for: ${modName}`;
+            document.getElementById('bugModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('bugModal').style.display = 'none';
+            document.getElementById('bugForm').reset();
+        }
+
+        function submitBug(event) {
+            event.preventDefault();
+            const title = document.getElementById('bugTitle').value;
+            const description = document.getElementById('bugDescription').value;
+            const steps = document.getElementById('bugSteps').value;
+            const severity = document.getElementById('bugSeverity').value;
+
+            // Create bug report object
+            const bugReport = {
+                mod: currentMod,
+                title: title,
+                description: description,
+                steps: steps,
+                severity: severity,
+                date: new Date().toISOString(),
+                status: 'submitted'
+            };
+
+            // Save to localStorage for demo purposes
+            let bugs = JSON.parse(localStorage.getItem('bugReports') || '[]');
+            bugs.push(bugReport);
+            localStorage.setItem('bugReports', JSON.stringify(bugs));
+
+            alert('✅ Bug report submitted successfully!\nThank you for helping improve our mods.');
+            closeModal();
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bugModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
 
